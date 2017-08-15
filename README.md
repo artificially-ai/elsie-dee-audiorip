@@ -20,7 +20,7 @@ In a dependency order priority, the Eureka Service should be started before ever
 
 # Running the Docker Container
 
-* ```docker run -d -p 8086:8086 --link configuration-service --link eureka-service ekholabs/elsie-dee-audiorip```
+* ```docker run -d -p 8086:8086 --link configuration-service --link eureka-service --name=elsie-dee-audiorip ekholabs/elsie-dee-audiorip```
 
 Elsie-Dee Audio Rip will run on the background. To check details about the container, execute the following:
 
