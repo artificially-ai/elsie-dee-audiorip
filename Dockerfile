@@ -12,4 +12,4 @@ ENV CONFIGURATION_SERVER_PORT=8082
 ENV EUREKA_SERVICE_PORT=8083
 
 ENTRYPOINT ["java"]
-CMD ["-server", "-Xmx512M", "-jar", "elsie-dee-audiorip.jar"]
+CMD ["-server", "-Xmx1G", "-jar", "elsie-dee-audiorip.jar"]
