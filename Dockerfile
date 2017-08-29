@@ -1,6 +1,6 @@
-FROM debian:latest
+FROM openjdk:jre-alpine
 
-RUN apt-get -y update && apt-get install -y openjdk-8-jre vim procps vlc
+RUN apk update && apk add vim procps vlc
 
 COPY build/libs/elsie-dee-audiorip-1.0-SNAPSHOT.jar /ekholabs/elsie-dee-audiorip.jar
 
