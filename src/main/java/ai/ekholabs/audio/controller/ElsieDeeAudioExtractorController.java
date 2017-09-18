@@ -17,17 +17,17 @@ import static org.springframework.http.MediaType.APPLICATION_OCTET_STREAM_VALUE;
 import static org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE;
 
 @RestController
-public class ElsieDeeAudioRipController {
+public class ElsieDeeAudioExtractorController {
 
   private final AudioRipService audioRipService;
 
   @Autowired
-  public ElsieDeeAudioRipController(final AudioRipService audioRipService) {
+  public ElsieDeeAudioExtractorController(final AudioRipService audioRipService) {
     this.audioRipService = audioRipService;
   }
 
-  @PostMapping(path = "/ripAudio", produces = APPLICATION_OCTET_STREAM_VALUE, consumes = MULTIPART_FORM_DATA_VALUE)
-  public ResponseEntity<byte[]> ripAudio(final @RequestParam(value = "video") MultipartFile videoFile) throws IOException {
+  @PostMapping(path = "/extractAudio", produces = APPLICATION_OCTET_STREAM_VALUE, consumes = MULTIPART_FORM_DATA_VALUE)
+  public ResponseEntity<byte[]> extractAudio(final @RequestParam(value = "video") MultipartFile videoFile) throws IOException {
     final byte[] bytes = videoFile.getBytes();
 
     final Path path = Files.createTempFile("video-file-rip", ".mp4");
@@ -35,6 +35,6 @@ public class ElsieDeeAudioRipController {
     tempVideoFile.deleteOnExit();
     Files.write(path, bytes);
 
-    return ResponseEntity.ok(audioRipService.ripAudio(tempVideoFile.getAbsolutePath()));
+    return ResponseEntity.ok(audioRipService.extractAudio(tempVideoFile.getAbsolutePath()));
   }
 }

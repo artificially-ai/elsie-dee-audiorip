@@ -23,7 +23,7 @@ public class AudioRipService {
 
   private static final int LATCH_COUNT = 1;
 
-  public byte[] ripAudio(final String filePath) throws IOException {
+  public byte[] extractAudio(final String filePath) throws IOException {
     final CountDownLatch countDownLatch = new CountDownLatch(LATCH_COUNT);
     final MediaPlayerEventListener mediaPlayerEventListener = new MediaPlayerEventListener(countDownLatch);
 
